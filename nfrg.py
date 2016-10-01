@@ -10,6 +10,7 @@ def build_arguments():
 	parser.add_argument('-u', '--base-url', required=True, metavar='URL')
 	parser.add_argument('-d', '--description', required=True, metavar='DESC')
 	parser.add_argument('-r', '--recursive', action='store_true')
+	parser.add_argument('-o', '--output', metavar='OUTPUT')
 	parser.add_argument('-l', '--log', choices=['debug', 'info', 'warning', 'error', 'critical'], default='warning')
 	parser.add_argument('file', nargs='+')
 	return parser.parse_args()
@@ -57,4 +58,7 @@ if __name__ == '__main__':
 		fe.link(href=url)
 		fe.title(os.path.basename(file))
 		fe.published(dts)
-	print fg.rss_str(pretty=True)
+	if args.output:
+		fg.rss_file(args.output, pretty=True)
+	else:
+		print fg.rss_str(pretty=True)
