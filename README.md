@@ -1,4 +1,9 @@
+# OBSOLETE
+
+This repository has been archived and will not be updated anymore.
+
 # newest_files_rss_generator
+
 Generates an rss feed listing files based on their modification time
 
 # install
